@@ -2,7 +2,7 @@
 
 ## Theme
 
-A fantasy world, akin to undertale. The character travles around the map, finding 5 runestones for a ritual to bring your best friend back to good health after an adventuring accident. Shortcut path is with the evil cult, also seeking the stones to release a sealing spell on their god. Introduced by the intro character.
+A fantasy world. The character travles around the map, finding 5 runestones for a ritual to bring your best friend back to good health after an adventuring accident. Shortcut path is with the evil cult, also seeking the stones to release a sealing spell on their god. Introduced by the intro character.
 
 ## Goal
 
@@ -63,9 +63,7 @@ character info
 
 Title screen if that counts 
 
-Is it cheating if I have my younger sibling make ascii art?
-
-Having mutiple backgrounds for the player to choose from that has diffrent dialog and action options
+Having mutiple backgrounds for the player to choose from that has diffrent dialog and action options. I kinda just want to add special dialog options
 
     Cleric - Has basic support spells, such as healing and light for easier adventuring, also starts with a better reletionship with the villagers and a worse score with the cult
 
@@ -75,5 +73,5 @@ Having mutiple backgrounds for the player to choose from that has diffrent dialo
 
 save and load system
 
-rainy weather chance to make random enemy ecounter more rare or extinquish torch
+rainy weather chance to make random enemy ecounter more rare or extinquish torch or soomething
 
