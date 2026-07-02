@@ -2,7 +2,7 @@
 
 ## Theme
 
-A fantasy world. The character travles around the map, finding 5 runestones for a ritual to bring your best friend back to good health after an adventuring accident. Shortcut path is with the evil cult, also seeking the stones to release a sealing spell on their god. Introduced by the intro character.
+A fantasy world. The character travles around the map, finding 5 runestones for a ritual to bring your best friend back to good health after an adventuring accident. Shortcut path is with the evil cult, also seeking the stones to release a sealing spell on their god or something.
 
 ## Goal
 
@@ -63,7 +63,7 @@ character info
 
 Title screen if that counts 
 
-Having mutiple backgrounds for the player to choose from that has diffrent dialog and action options. I kinda just want to add special dialog options
+Having mutiple backgrounds for the player to choose from that has diffrent dialog and action options. I kinda just want to add special dialog options im probably not gonna do all that
 
     Cleric - Has basic support spells, such as healing and light for easier adventuring, also starts with a better reletionship with the villagers and a worse score with the cult
 
