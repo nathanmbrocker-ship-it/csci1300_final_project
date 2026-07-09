@@ -2,11 +2,11 @@
 
 ## Theme
 
-A fantasy world. The character travles around the map, finding 5 runestones for a ritual to bring your best friend back to good health after an adventuring accident. Shortcut path is with the evil cult, also seeking the stones to release a sealing spell on their god or something.
+Im changing it to just stardew valley thing, so going around trying to collect the bundle stuff for the community center with an option to join joja mart and get rich or something.
 
 ## Goal
 
-Collect the 5 runestones by exploring an old mine, searching an ancient redwood type forest, convincing a village to give you their village relic stone (needs a really good connection score with the villagers or siding with the evil cult to destry it), fishing minigame, and the cults hideout (need a good connection score with the cult or get help from the kingdom through a good reletionship with the villagers)
+collect all 5 bundle items and manage character releationships
 
 ## How to compile and run
 
@@ -63,15 +63,7 @@ character info
 
 Title screen if that counts 
 
-Having mutiple backgrounds for the player to choose from that has diffrent dialog and action options. I kinda just want to add special dialog options im probably not gonna do all that
-
-    Cleric - Has basic support spells, such as healing and light for easier adventuring, also starts with a better reletionship with the villagers and a worse score with the cult
-
-    Cultist - Has basic magic for blowing up  stuff, allows easier acess to blocked areas with the downside of a bad relationship score with villagers and any non-cultist
-
-    Villager - Has no adventuring advantages with the advantage of a neutal reletionship with non-villagers and a very good relationship with the village, maybe starts with the village relic stone
-
 save and load system
 
-rainy weather chance to make random enemy ecounter more rare or extinquish torch or soomething
+rainy weather chance to change fishing chances or water crops
 
