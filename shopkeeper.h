@@ -24,6 +24,9 @@ class Shopkeeper : public Character {
         }
     //setters
     void setInventory(vector<string> i) {inventory = i;}
+
+    //getters
+    void openShop();
 };
 
 #endif

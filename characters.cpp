@@ -7,13 +7,14 @@
 //member function definitions
 //broken, no idea what. fails to compile then says no errors detected in the workspace
 void Character::lowerRelationship() {
-    setRelationship(getRelationship() - 1);
+    int newScore = getRelationship() - 1;
+    setRelationship(newScore);
 }
 void Character::raiseRelationship() {
     setRelationship(getRelationship() + 1);
 }
 
-int main() {
+int character() {
 
     return 0;
 }

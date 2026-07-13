@@ -1,57 +1,46 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
-//Im just putting all the big decoritive cout things in here so its easier to read eberything else
-
 void titleScreen() {
-    string start;
-    //Im not making my own thing anymore so im gonna change that to say Stardew Vally or something
-    //cout << " _______           _        _______  _______ _________ _______  _        _______ " << endl;
-    // cout << "(  ____ )|\\     /|( (    /|(  ____ \\(  ____ \\\\__   __/(  ___  )( (    /|(  ____ \\" << endl;
-    // cout << "| (    )|| )   ( ||  \\  ( || (    \\/| (    \\/   ) (   | (   ) ||  \\  ( || (    \\/" << endl;
-    // cout << "| (____)|| |   | ||   \\ | || (__    | (_____    | |   | |   | ||   \\ | || (__    " << endl;
-    // cout << "|     __)| |   | || (\\ \\) ||  __)   (_____  )   | |   | |   | || (\\ \\) ||  __)   " << endl;
-    // cout << "| (\\ (   | |   | || | \\   || (            ) |   | |   | |   | || | \\   || (      " << endl;
-    // cout << "| ) \\ \\__| (___) || )  \\  || (____/\\/\\____) |   | |   | (___) || )  \\  || (____/\\" << endl;
-    // cout << "|/   \\__/(_______)|/    )_)(_______/\\_______)   )_(   (_______)|/    )_)(_______/" << endl;
-    cout << "        ///\\\\\\                /\\                             v   v               " << endl;
-    cout << "       ////\\\\\\\\      /\\      //\\\\        /\\          /\\    v  v    v             " << endl;
-    cout << "      /////\\\\\\\\\\    //\\\\    ///\\\\\\  /\\  //\\\\        //\\\\         v               " << endl;
-    cout << "     / ^       ^\\  / ^  \\  /^ ^   \\/ ^\\/  ^ \\  /\\  /^   \\          |             " << endl;
-    cout << "    /    ^    ^  \\/    ^ \\/  ^ ^^ ^\\^ /  ^ ^ \\/  \\/  ^ ^ \\        /|\\            " << endl;
-    cout << "   /  ^      ^  ^ \\^  ^  /^ ^____ ^ \\/ ^  ^  /  ^ \\^ ^  ^ \\      /*||\\           " << endl;
-    cout << "  /    ^   ^     ^ \\^  ^/____|  |____________ ^  ^ \\ ^ ^  ^\\    /|||*|\\          " << endl;
-    cout << " / ^   ^  ^  ^   ^  \\^ //____________________\\ ^ ^  \\  ^ ^^ \\  /|*|||||\\       oo" << endl;
-    cout << "/ ^^  ^ ^  ^ ^ ^ ^ ^ \\//______________________\\  ^ ^ \\^ ^^ ^ \\    | | *   ooooooo" << endl;
-    cout << "oooooooooooo^  ^  ^ ^/^^||__||__||  ||__||__|| ^ ^ oooooooooooooooooooooooooooooo" << endl;
-    cout << "oooooooooooooooooo ^/ ^ |||||||||| *||||||||||ooooooooooooooooooooooooooooooooooo" << endl;
-    cout << "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" << endl;
+    string line;
+    ifstream inFile("title.txt");
+
+    if (inFile.is_open()) {
+        while(getline(inFile, line)) {
+            cout << line << '\n';
+        }
+        inFile.close();
+    } else {
+        cerr << "Error printing title" << endl;
+    }
 
     cout << "press enter to start!";
-    getline(cin, start);
+    getline(cin, line);
 }
 
 void printMap() {
-    string exit;
-    cout << " /‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\\" << endl;
-    cout << "|                                                                     |" << endl;
-    cout << "|                                    Mines                            |" << endl;
-    cout << "|                               ------/                               |" << endl;
-    cout << "|         Farm                 /                                      |" << endl;
-    cout << "|              \\---------Pelican Town----------Joja Mart™             |" << endl;
-    cout << "|             /                                                       |" << endl;
-    cout << "|       Forest                                                        |" << endl;
-    cout << "|                                                                     |" << endl;
-    cout << " \\____________________________________________________________________/" << endl;
+    string line;
+    ifstream inFile("map.txt");
 
-    cout << "Press enter to return to menu: ";
-    cin.ignore(1000, '\n');
-    getline(cin, exit);
+    if (inFile.is_open()) {
+        while(getline(inFile, line)) {
+            cout << line << '\n';
+        }
+        inFile.close();
+    } else {
+        cerr << "Error printing map" << endl;
+    }
 
 }
 
 void clearTerm() {
     cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" << endl;
+}
+
+void enterToContinue() {
+    string input;
+    getline(cin, input);
 }

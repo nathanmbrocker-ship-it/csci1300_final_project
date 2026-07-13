@@ -25,40 +25,46 @@ int main() {
     string playerName;
 
     //player declaration
-    Player p("", 100, "Farm");
+    Player p("", 100, "Farm", 0, 0);
 
     //character declaration
-    Character lewis("lewis", 7, "Community Center");
-    Shopkeeper pierre("Pierre", 5, "Pelican Town", {"Corn Seed", "Carrot Seed", "Lettuce Seed"});
-    Shopkeeper gus("Gus", 5, "Pelican Town", {"Bread", "Soup", "Stew", "White Monster Energy Drink"});
+    Character lewis("Lewis", 7, "Community Center");
+    Shopkeeper pierre("Pierre", 5, "Pelican Town", {"Corn Seed", "5", "Carrot Seed", "5", "Lettuce Seed", "5"});
+    Shopkeeper gus("Gus", 5, "Pelican Town", {"Bread", "10", "Soup", "10", "Stew", "15", "White Monster Energy Drink", "30", "Cool Looking Rock [bundle item]", "1200"});
     Character morris("Morris", 2, "Joja Mart");
 
     titleScreen();
 
     //Name selection
     cout << "Name your character: ";
-    cin >> playerName;
+    getline(cin, playerName);
+    //cin >> playerName;
     p.setName(playerName);
-
-    clearTerm();
 
     //game loop
     while (!endGame) {
         string input;
-        
+
+        //keeps the terminal neat and keeps the map visable
+        //clearTerm();
+        printMap();
         do {
             cout << "What do you want to do? (Enter 1-5)                    " << p.getName() << endl;
             cout << "1. Travel                                              " << p.getLocation() << endl;
             cout << "2. Check inventory                                     Energy: " << p.getEnergy() << endl;
-            cout << "3. Look at map                                         " << endl;
-            cout << "4. Talk to someone                                     " << endl;
+            cout << "3. Explore                                             Gold: " << p.getGold() << endl;
+            cout << "4. Talk to someone                                     Bundle Items" << p.getBundle() << "/5" << endl;
             cout << "5. Save and exit                                       " << endl;
             cin >> input;
-        } while (!validInputInt(input) && !(stoi(input) >= 1 && stoi(input) <= 5));
+        } while (!validInputInt(input) && !(stoi(input) >= 1 && stoi(input) <= 5)); //check for a valid int and that its in the right range
 
         switch (stoi(input)){
             case 1:
                 do {
+                    //clears the main menu for easier reading
+                    clearTerm();
+                    printMap();
+
                     cout << "Where would you like to travel: " << endl;
                     cout << "1. Pelican Town"  << endl;
                     cout << "2. Farm"  << endl;
@@ -87,14 +93,28 @@ int main() {
                 break;
 
             case 2:
+                //copy over the shopkeeper inv, remember to i++
                 cout << "Print inventory vector" << endl;
                 break;
 
-            //Move this to just be in the HUD above the menu
             case 3:
-                clearTerm();
-                printMap();
-                clearTerm();
+                cout << "You look around for a while" << endl;
+                if (p.getLocation() == "The Forest") {
+                    p.raiseBundle();
+                    p.lowerEnergy(20);
+                    cout << "You find a piece of Fossilized Wood [bundle item]!" << endl;
+                } else if (p.getLocation() == "The Mines") {
+                    p.raiseBundle();
+                    p.lowerEnergy(20);
+                    cout << "You find a piece of Amber [bundle item]!" << endl;
+                } else if (p.getLocation() == "Community Center") {
+                    p.lowerEnergy(5);
+                    lewis.raiseRelationship();
+                    cout << "You admire the center"  << endl;
+                } else {
+                    cout << "You wander around and find a dropped coin [+5 gold]" << endl;
+                    p.paidGold(5);
+                }
                 break;
 
             case 4:
@@ -107,7 +127,33 @@ int main() {
                         cin >> input;
                     } while (!validInputInt(input) && !(stoi(input) >= 1 && stoi(input) <= 2));
                     if (input == "1") {
-                        
+                        //still have to validate all these inputs
+                        cout << "You talk to Pierre [relationship: " << pierre.getRelationship() << "]" << endl;
+                        cout << "1. Be nice" << endl;
+                        cout << "2. Be rude" << endl;
+                        cout << "3. Open shop" << endl;
+                        cin >> input;
+                        if (stoi(input) == 1) {
+                            pierre.raiseRelationship();
+                        } else if (stoi(input) == 2) {
+                            pierre.lowerRelationship();
+                        } else if (stoi(input) == 3) {
+                            pierre.openShop();
+                        }
+
+                    } else {
+                        cout << "You talk to Gus [relationship: " << gus.getRelationship() << "]" << endl;
+                        cout << "1. Be nice" << endl;
+                        cout << "2. Be rude" << endl;
+                        cout << "3. Open shop" << endl;
+                        cin >> input;
+                        if (stoi(input) == 1) {
+                            gus.raiseRelationship();
+                        } else if (stoi(input) == 2) {
+                            gus.lowerRelationship();
+                        } else if (stoi(input) == 3) {
+                            gus.openShop();
+                        }
                     }
                 } else if (p.getLocation() == "Joja Mart") {
                     cout << "Morris [relationship: " << morris.getRelationship() << "]" << endl;
@@ -116,20 +162,19 @@ int main() {
                     cout << "2. Be rude" << endl;
                     cin >> input;
                         if (stoi(input) == 1) {
-                            morris.setRelationship(morris.getRelationship() + 5);
+                            morris.raiseRelationship();
                         } else if (stoi(input) == 2) {
-                            morris.setRelationship(morris.getRelationship() - 5);
+                            morris.lowerRelationship();
                         }
                 } else if (p.getLocation() == "Community Center") {
                     cout << "Lewis [relationship: " << lewis.getRelationship() << "]"<< endl;
-                    //relationship change test
                     cout << "1. Be nice" << endl;
                     cout << "2. Be rude" << endl;
                     cin >> input;
                         if (stoi(input) == 1) {
-                            //lewis.raiseRelationship();
+                            lewis.raiseRelationship();
                         } else if (stoi(input) == 2) {
-                            //lewis.lowerRelationship();
+                            lewis.lowerRelationship();
                         }
                 } else {
                     cout << "There's no one to talk to :(" << endl;
