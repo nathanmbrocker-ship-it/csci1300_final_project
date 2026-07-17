@@ -5,7 +5,6 @@
 #include "characters.h"
 
 //member function definitions
-//broken, no idea what. fails to compile then says no errors detected in the workspace
 void Character::lowerRelationship() {
     int newScore = getRelationship() - 1;
     setRelationship(newScore);

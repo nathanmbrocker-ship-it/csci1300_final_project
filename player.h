@@ -14,6 +14,10 @@ class Player {
         string location;
         int gold;
         int numBundCollected;
+        vector<string> inventory;
+        vector<string> seeds;
+        vector<string> planted;
+        vector<int> daysPlanted;
     public:
         Player(string n, int e, string l, int g, int b) {
             name = n;
@@ -29,6 +33,7 @@ class Player {
     void setLocation(string l) {location = l;}
     void setGold(int g) {gold = g;}
     void setBundle(int b) {numBundCollected = b;}
+    void setInv(vector<string> i) {inventory = i;}
 
     //getters
     string getName() {return name;}
@@ -43,6 +48,14 @@ class Player {
     void spendGold(int g);
     void paidGold(int g);
     void raiseBundle();
+    void printInventory();
+    void addItemInv(vector<string> item);
+    void addSeeds(vector<string> item);
+    void sell();
+    void plant();
+    void printPlanted();
+    void addDayPlanted();
+    void harvest();
 
 };
 #endif
